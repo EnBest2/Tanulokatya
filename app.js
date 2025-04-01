@@ -1,0 +1,1 @@
+// JS kód a tanulókártyákhoz és AI híváshoz
