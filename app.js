@@ -45,8 +45,7 @@ btn.onclick = async () => {
 
     if (!res.ok) {
       const errorText = await res.text();
-      alert(`Hiba: ${res.status} - ${res.statusText}\n${errorText}`);
-      throw new Error(`HTTP ${res.status}: ${errorText}`);
+      throw new Error(`HTTP ${res.status}: ${res.statusText}\n${errorText}`);
     }
 
     const data = await res.json();
@@ -55,7 +54,12 @@ btn.onclick = async () => {
     saveCards(currentCategory, cards);
     renderCards(currentCategory);
   } catch (err) {
-    alert("Hiba történt a generálás során:\n" + err.message);
+    const fullError =
+      "Hiba történt a generálás során:\n" +
+      (err.message || "Ismeretlen hiba") +
+      "\n\n" +
+      (err.stack || "");
+    alert(fullError);
     console.error("Részletes hiba:", err);
   }
 
