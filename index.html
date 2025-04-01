@@ -1,1 +1,35 @@
-<!-- Itt lenne a teljes PWA app HTML kódja -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tanulókártyák</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Tanulókártyák</h1>
+    <button id="modeToggle">🌓</button>
+  </header>
+
+  <main>
+    <textarea id="tetelInput" placeholder="Illeszd be a tételt ide..."></textarea>
+    <select id="categorySelect">
+      <option value="irodalom">📖 Irodalom</option>
+      <option value="tortenelem">🏛️ Történelem</option>
+      <option value="nyelvtan">💬 Nyelvtan</option>
+    </select>
+    <button id="generateBtn">Generálás</button>
+    <section id="cardsContainer"></section>
+  </main>
+
+  <footer>
+    <button class="tab" data-category="irodalom">📖 Irodalom</button>
+    <button class="tab" data-category="tortenelem">🏛️ Történelem</button>
+    <button class="tab" data-category="nyelvtan">💬 Nyelvtan</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
