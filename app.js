@@ -36,16 +36,22 @@ btn.onclick = async () => {
   btn.disabled = true;
   btn.textContent = "Generálás folyamatban...";
 
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text })
-  });
-  const data = await res.json();
+  try {
+    const res = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text })
+    });
 
-  const cards = loadCards(currentCategory).concat(data);
-  saveCards(currentCategory, cards);
-  renderCards(currentCategory);
+    const data = await res.json();
+
+    const cards = loadCards(currentCategory).concat(data);
+    saveCards(currentCategory, cards);
+    renderCards(currentCategory);
+  } catch (err) {
+    alert("Hiba történt a generálás során.");
+    console.error("Hiba a fetch során:", err);
+  }
 
   input.value = "";
   btn.disabled = false;
