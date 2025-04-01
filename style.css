@@ -1,1 +1,38 @@
-/* Stílus a világos és sötét módhoz */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --card: #f0f0f0;
+}
+body.dark {
+  --bg: #0b111f;
+  --text: #ffffff;
+  --card: #1f2a40;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header, footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+textarea, select, button {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  font-size: 1rem;
+}
+#cardsContainer {
+  padding: 10px;
+}
+.card {
+  background: var(--card);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+}
